@@ -19,12 +19,12 @@ void new_exec(char *str)
 	{
 		char *single_command = comm;
 
-		while (*single_command == '')
+		while (*single_command == ' ')
 		{
 			single_command++;
 		}
 		end = single_command + strlen(single_command) - 1;
-		while (*end == '' &end >= single_command)
+		while (*end == ' ' && end >= single_command)
 		{
 			*end = '\0';
 			end--;
@@ -34,9 +34,9 @@ void new_exec(char *str)
 		{
 			const char *arg = comm + 4;
 
-			while (*atg == '')
+			while (*arg == ' ')
 			{
-				arg++
+				arg++;
 			}
 
 			status = atoi(arg);

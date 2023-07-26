@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * diff_exec - handle or operator
  * @str: input
@@ -6,27 +7,28 @@
  */
 void diff_exec(char *str)
 {
-	char *comm;
-	char *end;
-	
-	comm = my_strtok(str, "||");
+        char *comm;
+        char *end;
 
-	while (comm != NULL)
-	{
-		char *single_command = comm;
+        comm = my_strtok(str, "||");
 
-		while (*single_command == '')
-		{
-			single_comman++;
-		}
-		end = single_command + strlen(single_command) - 1;
-		while (*end == '' &&end >= single_command)
-		{
-			*end = '\0';
-			end--;
-		}
-		execute_command(comm);
+        while (comm != NULL)
+        {
+                char *single_command = comm;
 
-		comm = my_strtok(NULL, "||");
-	}
+                while (*single_command == ' ')
+                {
+                        single_command++;
+                }
+                end = single_command + strlen(single_command) - 1;
+                while (*end == ' ' && end >= single_command)
+                {
+                        *end = '\0';
+                        end--;
+                }
+                execute_command(comm);
+
+                comm = my_strtok(NULL, "||");
+        }
 }
+
