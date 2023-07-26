@@ -10,28 +10,28 @@
 
 char *custom_fgets(char *str, int size, FILE *stream)
 {
-        int count;
-        int ch;
+	int count;
+	int ch;
 
-        if (size <= 0 || !str || !stream)
-                return (NULL);
-        count = 0;
-        while (count < size - 1)
-        {
-                ch = fgetc(stream);
-                if (ch == EOF)
-                        break;
+	if (size <= 0 || !str || !stream)
+		return (NULL);
+	count = 0;
+	while (count < size - 1)
+	{
+		ch = fgetc(stream);
+		if (ch == EOF)
+			break;
 
-                str[count] = ch;
-                count++;
-                if (ch == '\n')
-                        break;
-        }
-        if (count == 0)
-                return (NULL);
-        str[count] = '\0';
+		str[count] = ch;
+		count++;
+		if (ch == '\n')
+			break;
+	}
+	if (count == 0)
+		return (NULL);
+	str[count] = '\0';
 
-        return (str);
+	return (str);
 }
 /**
  * read_command - read the user input
@@ -40,8 +40,8 @@ char *custom_fgets(char *str, int size, FILE *stream)
  */
 void read_command(char *command)
 {
-        custom_fgets(command, MAX_COMMAND_LENGTH, stdin);
+	custom_fgets(command, MAX_COMMAND_LENGTH, stdin);
 
-        command[strcspn(command, "\n")] = '\0';
+	command[strcspn(command, "\n")] = '\0';
 
 }
